@@ -8,3 +8,17 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Song.create([
+              { name: 'Show Me A Good Time',
+                artist: 'Drake',
+                runtime: '3:30' },
+              { name: 'What I Got',
+                artist: 'Sublime',
+                runtime: '2:51' },
+              { name: 'Ms. Jackson',
+                artist: 'Outkast',
+                runtime: '4:31' },
+              { name: 'Electric Relaxation',
+                artist: 'A Tribe Called Quest',
+                runtime: '3:46' }
+            ])
