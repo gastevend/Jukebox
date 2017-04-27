@@ -47,6 +47,9 @@ class ExamplesController < OpenReadController
   end
 
   def set_example
+    # get the current users, authenticated based on token, get the users examples
+    # now find the examples with this id. if it belongs to current user then it
+    # will show if not it wont be found.
     @example = current_user.examples.find(params[:id])
   end
 
