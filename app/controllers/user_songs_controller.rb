@@ -1,5 +1,5 @@
 class UserSongsController < ProtectedController
-  before_action :set_user_song, only: [:show, :update, :destroy]
+  before_action :set_user_song, only: [:show, :update]
 
   # GET /user_songs
   def index
@@ -39,12 +39,19 @@ class UserSongsController < ProtectedController
     end
   end
 
+  # delete all the users songs
+  def remove
+    @user_songs = current_user.user_songs
+    @user_songs.destroy_all
+  end
+
   # DELETE /user_songs/1
   def destroy
     @user_song.destroy
   end
 
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_user_song
       @user_song = UserSong.find(params[:id])

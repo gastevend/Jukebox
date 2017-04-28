@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   delete '/sign-out/:id' => 'users#signout'
   patch '/change-password/:id' => 'users#changepw'
   get '/your-songs' => 'user_songs#yoursongs'
+  delete '/remove-songs' => 'user_songs#remove'
 
   resources :user_songs, except: [:new, :edit]
   resources :users, only: [:index, :show]
