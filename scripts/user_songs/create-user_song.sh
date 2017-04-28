@@ -12,5 +12,3 @@ curl "${API}${URL_PATH}" \
       "user_id": "1"
     }
   }'
-
-echo
