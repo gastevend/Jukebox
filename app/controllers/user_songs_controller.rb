@@ -1,4 +1,4 @@
-class UserSongsController < ApplicationController
+class UserSongsController < ProtectedController
   before_action :set_user_song, only: [:show, :update, :destroy]
 
   # GET /user_songs
@@ -11,6 +11,12 @@ class UserSongsController < ApplicationController
   # GET /user_songs/1
   def show
     render json: @user_song
+  end
+
+  # GET /yoursongs
+  def yoursongs
+    @yoursongs = current_user.user_songs
+    render json: @yoursongs
   end
 
   # POST /user_songs
