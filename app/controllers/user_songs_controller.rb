@@ -3,7 +3,7 @@ class UserSongsController < ProtectedController
 
   # GET /user_songs
   def index
-    @user_songs = UserSong.all
+    @user_songs = UserSong.all.sort_by(&:created_at)
 
     render json: @user_songs
   end
@@ -15,16 +15,18 @@ class UserSongsController < ProtectedController
 
   # GET /yoursongs
   def yoursongs
-    @yoursongs = current_user.user_songs
+    @yoursongs = current_user.user_songs.sort_by(&:created_at)
+    # sorted = @records
     render json: @yoursongs
   end
 
   # POST /user_songs
   def create
-    @user_song = UserSong.new(user_song_params)
+    # @user_song = UserSong.new(user_song_params)
+    @user_song = current_user.user_songs.build(user_song_params)
 
     if @user_song.save
-      render json: @user_song, status: :created, location: @user_song
+      render json: @user_song, status: :created # location: @user_song
     else
       render json: @user_song.errors, status: :unprocessable_entity
     end
