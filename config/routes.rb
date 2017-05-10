@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/your-songs' => 'user_songs#yoursongs'
   delete '/remove-songs' => 'user_songs#remove'
 
-  resources :user_songs, except: [:new, :edit]
+  resources :user_songs, except: [:show, :destroy, :new, :edit]
   resources :users, only: [:index, :show]
   resources :songs, except: [:new, :edit]
   resources :examples, except: [:new, :edit]
