@@ -8,11 +8,6 @@ class UserSongsController < ProtectedController
     render json: @user_songs
   end
 
-  # GET /user_songs/1
-  def show
-    render json: @user_song
-  end
-
   # GET /yoursongs
   def yoursongs
     @yoursongs = current_user.user_songs.sort_by(&:created_at)
@@ -45,11 +40,6 @@ class UserSongsController < ProtectedController
   def remove
     @user_songs = current_user.user_songs
     @user_songs.destroy_all
-  end
-
-  # DELETE /user_songs/1
-  def destroy
-    @user_song.destroy
   end
 
   private
